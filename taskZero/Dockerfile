@@ -3,7 +3,8 @@ FROM node:12
 WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm i npm@latest -g
-RUN npm install
+RUN /usr/bin/npm install
+RUN node_modules/@angular/cli/bin/ng build
 COPY . .
 RUN npm run build
 
